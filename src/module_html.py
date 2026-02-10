@@ -18,7 +18,7 @@ def enhance_fund_tab_content(content, shares_map=None):
             <input type="file" id="uploadFile" accept=".json" style="display:none" onchange="uploadFundMap(this.files[0])">
             <button class="btn btn-secondary" onclick="document.getElementById('uploadFile').click()" style="padding: 8px 16px;">📤 导入基金列表</button>
             <span style="color: #f59e0b; font-size: 13px; margin-left: 10px;">
-                <span style="color: #f59e0b;">⚠️</span> 导入/导出为覆盖性操作，直接应用最新配置（非累加）
+                <span style="color: #f59e0b;">
             </span>
         </div>
     """
@@ -5505,14 +5505,11 @@ def get_portfolio_page_html(fund_content, fund_map, fund_chart_data=None, fund_c
                 }}
             </style>
 
-            <!-- 免责声明 -->
-            <div style="margin-bottom: 20px; padding: 12px 15px; background: rgba(255, 193, 7, 0.1); border: 1px solid rgba(255, 193, 7, 0.3); border-radius: 8px; font-size: 0.85rem; color: var(--text-dim);">
-                <p style="margin: 0; line-height: 1.5;">
-                    <strong style="color: #ffc107;">⚠️ 免责声明</strong>：
-                    预估收益根据您输入的持仓份额与实时估值计算得出，仅供参考。
-                    实际收益以基金公司最终结算为准，可能因份额确认时间、分红方式、费用扣除等因素存在偏差。
-                    投资有风险，入市需谨慎。
-                </p>
+
+
+            <!-- 基金内容 -->
+            <div class="fund-content">
+                {fund_content}
             </div>
 
             <!-- 基金估值趋势图 -->
@@ -5532,10 +5529,6 @@ def get_portfolio_page_html(fund_content, fund_map, fund_chart_data=None, fund_c
                 </div>
             </div>
 
-            <!-- 基金内容 -->
-            <div class="fund-content">
-                {fund_content}
-            </div>
         </div>
     </div>
 

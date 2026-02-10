@@ -16,14 +16,17 @@
         const sidebarToggle = document.getElementById('sidebarToggle');
 
         if (sidebar && sidebarToggle && sidebar.id === 'sidebar') {
+            // 确保侧边栏始终展开
+            sidebar.classList.remove('collapsed');
+            
+            // 隐藏折叠按钮（可选）
+            // sidebarToggle.style.display = 'none';
+            
+            // 或者禁用折叠功能但保留按钮
             sidebarToggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                sidebar.classList.toggle('collapsed');
-                // Update toggle button direction
-                const isCollapsed = sidebar.classList.contains('collapsed');
-                sidebarToggle.textContent = isCollapsed ? '▶' : '◀';
-                sidebarToggle.title = isCollapsed ? '展开' : '折叠';
+                // 不执行任何折叠操作，保持展开状态
             });
         }
 
